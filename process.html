@@ -54,7 +54,106 @@
       <div class="row">
         <div class="col-xs-12">
           <h2>Sprint 1: Concept and Initial Movement Control</h2>
-          <p></p>
+          <p>Our first sprint focused on getting the project off of the ground and on demonstrating that the idea was feasible. One of our major concerns was that it wouldn't be physically possible to control a ball in 3 dimensions, and so we did as much testing with hair dryers, computer fans, etc, as possible. We also designed and assembled the first stage of our mechanical system, the X axis (left/right) and the control mechanism (a joystick from the 90s).</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <img src="img/1axis.jpg" class="hcenterimg" width="400px">
+          <p class="hcenter">First axis of movement</p>
+        </div>
+        <div class="col-md-6">
+          <img src="img/joystick.jpg" class="hcenterimg" width="400px">
+          <p class="hcenter">Our joystick controller</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <h2>Sprint 2: Vertical Movement</h2>
+          <p>Although we tested our ability to control a ball during the first sprint, we knew that this still a potential failure mode for us. We spent this sprint specing out fans and blowers. The important things we were looking for were flow rate (so that we could raise the ball high enough) and maximum pressure (so that we could feed it through a tube). After many iterations, we settled on a (very loud) vacuum from Home Depot. </p>
+          <p>We also created a control mechanism for raising and lowering the ball (Z axis) - turning a potentiometer opens and closes a servo-controlled valve on the blower tube.</p>
+          <p>Lastly, we set up a commercially-available coin collector to accept coins and send a "start game" signal.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <img src="img/servo.jpg" class="hcenterimg" width="400px">
+          <p class="hcenter">Servo valve</p>
+        </div>
+        <div class="col-md-6">
+          <img src="img/coinacceptor.jpg" class="hcenterimg" width="400px">
+          <p class="hcenter">Coin Acceptor</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <img src="img/2axis.jpg" class="hcenterimg" width="400px">
+          <p class="hcenter">X and Z axes, as well as control box</p>
+        </div>
+        <div class="col-md-6">
+          <img src="img/2axisbox.jpg" class="hcenterimg" width="400px">
+          <p class="hcenter">Electrical system inside the box</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <h2>Sprint 3: 3-Axes Demonstration</h2>
+          <p>The obvious next step for us was to finish off the control system with the Y axis (forward and back). We mounted the X axis on a set of rails, and pulled it back and forth via string on both sides.</p>
+          <p>During this sprint, we focused on a number of smaller tasks as well. We fabricated a PCB to clean up our messy breadboarded wires and implement dual motor control. We also prototyped a photodiode/LED pair to detect when the game has ended and a 7-segment display to give score feedback to the player.</p>
+        </div> 
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <img src="img/3axis.jpg" class="hcenterimg" width="400px">
+          <p class="hcenter">3-axis system on the rails</p>
+        </div>
+        <div class="col-md-6">
+          <img src="img/pcb.jpg" class="hcenterimg" width="400px">
+          <p class="hcenter">Custom PCB for user input and motor control</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <img src="img/7segment.jpg" class="hcenterimg" width="400px">
+          <p class="hcenter">7-segment display for scoring</p>
+        </div>
+        <div class="col-md-6">
+          <img src="img/photodiode.jpg" class="hcenterimg" width="400px">
+          <p class="hcenter">Photodiode to detect win/lose conditions</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <h2>Sprint 4: Gameplay and Decoration</h2>
+          <p>Up to this point, we had worked mainly on control mechanisms and only put a small amount of time into the actual gameplay. This was our main failure mode at the start of this sprint. We spent the sprint prototyping obstacles and assembling the overall structure of the game. After trying cardboard, string, and wire (and considering saran-wrap), we ended up using a net for our obstacles. The net is transparent, allowing the player to see the ball at all points, but effecively knocks the ball off the airstream.</p>
+          <p>One of our other concerns was that the airflow was too turbulent and the ball would fall off on its own. We prototyped several different nozzles to focus and smooth the airflow (trying to achieve Laminar flow).</p>
+          <p>Lastly, we painted the assembly to make it more user-friendly!</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <img src="img/obstacles.jpg" class="hcenterimg" width="400px">
+          <p class="hcenter">Holes in the netting for the ball to pass through</p>
+        </div>
+        <div class="col-md-6">
+          <img src="img/nozzles.jpg" class="hcenterimg" width="400px">
+          <p class="hcenter">Our fleet of 3D printed nozzles that we experimented with! Final nozzle not shown here, but it's closest to the one in the middle of the bottom row.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <h2>Sprint 5: Debug and Polish</h2>
+          <p>At this point, our project was fully functional - we just needed polish. During the final sprint, we finished putting up obstacles, laser-cut a control box to replace the cardboard box, and made other tuning adjustments to all of the subsystems.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <img src="img/finalbox.jpg" class="hcenterimg" width="400px">
+          <p class="hcenter">Final control box</p>
+        </div>
+        <div class="col-md-6">
+          <img src="img/finalgame.jpg" class="hcenterimg" width="400px">
+          <p class="hcenter">The finished game assembly!</p>
         </div>
       </div>
       <hr>
