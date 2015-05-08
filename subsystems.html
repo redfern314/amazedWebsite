@@ -50,14 +50,14 @@
       <div class="row">
         <div class="col-xs-12">
           <h1>Mechanical Subsystem</h1>
-          <p>The purpose of the 3D Maze, as discussed more elsewhere, is to support a ping pong ball on a column of air so that a user can steer the ping pong ball in 3D space and pilot the ball through a maze. The mechanical system for the 3D Maze has four essential parts - X axis travel (left/right for the user), Y axis travel (forward/back for the user), Z axis travel (up/down), and, finally, the obstacles themselves.</p>
+          <p>The purpose of the 3D Maze, as discussed more elsewhere, is to support a ping pong ball on a column of air so that a user can steer the ping pong ball in 3D space and pilot the ball through a maze. The mechanical system for the 3D Maze has four essential parts - X axis travel (left/right for the user), Y axis travel (forward/back for the user), Z axis travel (up/down), and finally, the obstacles themselves.</p>
           <br>
         </div>
       </div>
       <hr>
       <div class="row">
         <div class="col-md-5">
-          <p>X axis travel is enabled with a C channel tube and cart made to ride in that C channel. The purpose of both the X and Y axes is to support and transport a vacuum tube that blows air to create the stable air column. The flexible vacuum tube is mounted to the X axis cart, which travels along the C channel, driven by a timing belt drive. Limit switches at either end of the C channel provide a safety limit on the system - when the X axis cart hits a limit switches the software halts all travel in that direction. The C channel found by the team wasn't large enough for the envisioned game, so 3D printed rails were made to form extensions. It was difficult to print the rails cleanly enough to form a precise C channel, and also difficult to position the 3 printed rails accurately enough to form a nice interface to the existing channel, but eventually rails that provided tolerable performance were made.</p>
+          <p>X axis travel is enabled with a C channel tube and cart made to ride in that C channel. The purpose of both the X and Y axes is to support and transport a vacuum tube that blows air to create the stable air column. The flexible vacuum tube is mounted to the X axis cart, which travels along the C channel, driven by a timing belt drive. Limit switches at either end of the C channel provide a safety limit on the system - when the X axis cart hits a limit switch, the software halts all travel in that direction. The C channel found by the team wasn't large enough for the envisioned game, so 3D printed rails were made to form extensions. It was difficult to print the rails cleanly enough to form a precise C channel, and also difficult to position the 3 printed rails accurately enough to form a nice interface to the existing channel, but eventually rails that provided tolerable performance were made.</p>
         </div>
         <div class="col-md-6 col-md-offset-1">
             <div class="slick">
@@ -103,7 +103,7 @@
             </div>
         </div>
         <div class="col-md-5 col-md-offset-1">
-          <p>The Y axis travels along extruded aluminum V rails, purchased from OpenBuilds, an open source provider of CNC hardware. The X axis (discussed above) was pulled along the parallel V rails using a double capstan drive. In order to prevent torquing forces on the X axis, which was fairly wide, the drive torque from the motor was transferred equally from one side to the other using a long drive shaft. It was very difficult to get the V rails to line up exactly parallel along the entire length, a redesign should definitely include a way to adjust the relative position of the V rails to prevent the X axis from driving off the rails.</p>
+          <p>The Y axis travels along extruded aluminum V rails, purchased from OpenBuilds, an open source provider of CNC hardware. The X axis (discussed above) was pulled along the parallel V rails using a double capstan drive. In order to prevent torquing forces on the X axis, which was fairly wide, the drive torque from the motor was transferred equally from one side to the other using a long drive shaft. It was very difficult to get the V rails to line up exactly parallel along the entire length, so a system redesign should definitely include a way to adjust the relative position of the V rails to prevent the X axis from driving off the rails.</p>
         </div>
       </div>
       <hr>
@@ -158,12 +158,42 @@
       <div class="row">
         <div class="col-xs-12">
           <h1>Electrical Subsystem</h1>
+
+          <h3>Coin Acceptor</h3>
+          <p>An off the shelf coin acceptor was bought from Sparkfun in order to interface with the main controller to detect certain coins. The acceptor is powered with a 12V source and outputs a small (40mV) pulse whenever a correct coin is inserted. This pulse is amplified through a comparator and then sent to a digital input on the main microcontroller.</p>
+
+          <h3>Joystick</h3>
+          <p>The x and y axes of the joystick act as variable resistors between 0 and 100k. These resistors are hooked up in a resistor divider configuration with a 3.3V upper rail in order to get a linear* representation of the joystick’s movement. These values are then sent to analog pins on the main microcontroller and used to control the X and Y axis motors. (*we found that the response from the joystick was anything but linear, and it had to be carefully calibrated in order to get an acceptable range of readings from it.</p>     
+
+          <h3>Air Flow Knob</h3>
+          <p>The air flow knob is a potentiometer with a 3.3V rail. The voltage from the wiper of the potentiometer is hooked up directly an analog pin. This creates a linear relationship between the wiper voltage and the rotational angle of the potentiometer. This value is used to control the PWM to a servo which controls the airflow.</p>
+
+          <h3>Ball Sensors</h3>
+          <p>Photodiode and red LEDs were used to detect when the ball pasted certain sections of the maze. The photodiodes were connected up to transistors in order amplify the signal and then passed into digital pins of the microcontroller.</p>
+
+          <h3>Limit Controls</h3>
+          <p>There are a number of limit switches that detect when the system reaches the maximum points on the x and y axes. These switches prevent the system from traversing too far and also help zero the system. At each of the 4 maximum points, there are two limit switches - one software and one hardware. The software motor runs back to the main microcontroller, so that the system can intelligently allow the user to drive backwards but no farther forwards. The hardware limit switch is wired directly into the appropriate motor, such that the system cannot move once it has reached that point (and must be manually reset).</p>
+
+          <h3>System Wiring</h3>
+          <p>We designed and fabricated a PCB in order to make the wiring process cleaner. The PCB contains 2 motor controller drivers, 2 op-amp buffers for the joystick, 1 comparator for the coin acceptor, and a spare op-amp buffer. The rest of the wiring is soldered onto protoboards. Wires that need to be routed to the X axis (which itself is moving over the Y axis) run through a cable chain carrier so that they don't become tangled.</p>
         </div>
       </div>
 
       <div class="row">
         <div class="col-xs-12">
           <h1>Firmware Subsystem</h1>
+          For this project, we used a custom Arduino-compatible PIC board as our main firmware components. We used two of these boards - one was for user input and game actuation, and the other was for score detection and user display.
+
+          <h3>Main PIC</h3>
+          <p>The main PIC is primarily responsable for actuation. It gets the user's input from the X and Y axes of the joystick and the Z knob, and adjusts the corresponding axes appropriately. The software limit switches are connected to the main PIC as well so that it can disable motion when a limit switch is triggered. When the game starts, the main PIC must zero the axes so that the user can put a ball on the nozzle.</p>
+
+          <h3>Score PIC</h3>
+          <p>As its name suggests, the score PIC deals with the user's score. It displays the high score and the user's current score (as well as various other snarky ph) on two 7-segment displays. The photodiodes connect to the score PIC in order to detect when the game has ended, and the coin acceptor connects as well to detect when the game should start. Additionally, there is feedback between the two PICs: the score PIC knows when the vacuum turns on via the relay, and the score PIC pulls a dedicated line high / low to indicate that the game is starting / has ended.</p>
+
+          <h3>Control Tools</h3>
+          <p>We recognized that with a project this large, it would be easy to start creating non-DRY code - or worse, spaghetti code. As a result, we encapsulated all of the functions that took input or sent output into a series of reusable libraries that we called Control Tools. This library is included in the codebase of both our main and our score PICs.</p>
+
+          <a href="http://github.com/redfern314/amazedWebsite"><h3>Source code on Github</h3></a>
         </div>
       </div>
 
