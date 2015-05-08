@@ -14,6 +14,8 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap-superhero.min.css" rel="stylesheet">
     <link href="css/amazed.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
   </head>
 
   <body>
@@ -48,13 +50,117 @@
       <div class="row">
         <div class="col-xs-12">
           <h1>Mechanical Subsystem</h1>
+          <p>The purpose of the 3D Maze, as discussed more elsewhere, is to support a ping pong ball on a column of air so that a user can steer the ping pong ball in 3D space and pilot the ball through a maze. The mechanical system for the 3D Maze has four essential parts - X axis travel (left/right for the user), Y axis travel (forward/back for the user), Z axis travel (up/down), and, finally, the obstacles themselves.</p>
+          <br>
         </div>
       </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-5">
+          <p>X axis travel is enabled with a C channel tube and cart made to ride in that C channel. The purpose of both the X and Y axes is to support and transport a vacuum tube that blows air to create the stable air column. The flexible vacuum tube is mounted to the X axis cart, which travels along the C channel, driven by a timing belt drive. Limit switches at either end of the C channel provide a safety limit on the system - when the X axis cart hits a limit switches the software halts all travel in that direction. The C channel found by the team wasn't large enough for the envisioned game, so 3D printed rails were made to form extensions. It was difficult to print the rails cleanly enough to form a precise C channel, and also difficult to position the 3 printed rails accurately enough to form a nice interface to the existing channel, but eventually rails that provided tolerable performance were made.</p>
+        </div>
+        <div class="col-md-6 col-md-offset-1">
+            <div class="slick">
+                <div>
+                  <img class="hcenterimg" src="img/x1.jpg" height="400" alt="">
+                  <p class="hcenter">Technically, a description should go here.</p>
+                </div>
+                <div>
+                  <img class="hcenterimg" src="img/x2.jpg" height="400" alt="">
+                  <p class="hcenter">Technically, a description should go here.</p>
+                </div>
+                <div>
+                  <img class="hcenterimg" src="img/x3.jpg" height="400" alt="">
+                  <p class="hcenter">Technically, a description should go here.</p>
+                </div>
+                <div>
+                  <img class="hcenterimg" src="img/x4.jpg" height="400" alt="">
+                  <p class="hcenter">Technically, a description should go here.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-6">
+            <div class="slick">
+                <div>
+                  <img class="hcenterimg" src="img/y1.jpg" height="400" alt="">
+                  <p class="hcenter">Technically, a description should go here.</p>
+                </div>
+                <div>
+                  <img class="hcenterimg" src="img/y2.jpg" height="400" alt="">
+                  <p class="hcenter">Technically, a description should go here.</p>
+                </div>
+                <div>
+                  <img class="hcenterimg" src="img/y3.jpg" height="400" alt="">
+                  <p class="hcenter">Technically, a description should go here.</p>
+                </div>
+                <div>
+                  <img class="hcenterimg" src="img/y4.jpg" height="400" alt="">
+                  <p class="hcenter">Technically, a description should go here.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5 col-md-offset-1">
+          <p>The Y axis travels along extruded aluminum V rails, purchased from OpenBuilds, an open source provider of CNC hardware. The X axis (discussed above) was pulled along the parallel V rails using a double capstan drive. In order to prevent torquing forces on the X axis, which was fairly wide, the drive torque from the motor was transferred equally from one side to the other using a long drive shaft. It was very difficult to get the V rails to line up exactly parallel along the entire length, a redesign should definitely include a way to adjust the relative position of the V rails to prevent the X axis from driving off the rails.</p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-5">
+          <p>The Z axis height of the ball was controlled by adjusting the airflow through our nozzle. This was done by placing a redirection gate just downstream of our air source, a Bucket Head Wet/Dry vacuum. A servo controlled how much the airflow was redirected, which adjusted the height of the ball.</p>
+        </div>
+        <div class="col-md-6 col-md-offset-1">
+            <div class="slick">
+                <div>
+                  <img class="hcenterimg" src="img/z1.jpg" height="400" alt="">
+                  <p class="hcenter">Technically, a description should go here.</p>
+                </div>
+                <div>
+                  <img class="hcenterimg" src="img/z2.jpg" height="400" alt="">
+                  <p class="hcenter">Technically, a description should go here.</p>
+                </div>
+                <div>
+                  <img class="hcenterimg" src="img/z3.jpg" height="400" alt="">
+                  <p class="hcenter">Technically, a description should go here.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-6">
+            <div class="slick">
+                <div>
+                  <img class="hcenterimg" src="img/obst1.jpg" height="400" alt="">
+                  <p class="hcenter">Technically, a description should go here.</p>
+                </div>
+                <div>
+                  <img class="hcenterimg" src="img/obst2.jpg" height="400" alt="">
+                  <p class="hcenter">Technically, a description should go here.</p>
+                </div>
+                <div>
+                  <img class="hcenterimg" src="img/obst3.jpg" height="400" alt="">
+                  <p class="hcenter">Technically, a description should go here.</p>
+                </div>
+                <div>
+                  <img class="hcenterimg" src="img/obst4.jpg" height="400" alt="">
+                  <p class="hcenter">Technically, a description should go here.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5 col-md-offset-1">
+          <p>Finally, the obstacles were made from folded string mesh with foam core cutouts for gates. These materials were chosen because they were light, and the mesh was chosen because the user needs to be able to see through the walls so that they can see multiple layers of obstacles. It became clear during gameplay that being able to constantly readjust the maze would make playing more enjoyable, because the course would always be novel, but it is very difficult to physically adjust the obstacles.</p>
+        </div>
+      </div>
+
       <div class="row">
         <div class="col-xs-12">
           <h1>Electrical Subsystem</h1>
         </div>
       </div>
+
       <div class="row">
         <div class="col-xs-12">
           <h1>Firmware Subsystem</h1>
@@ -72,9 +178,9 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script src="js/slick-init.js"></script>
   </body>
 </html>
